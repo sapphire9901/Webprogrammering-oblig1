@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oblig1</title>
+    <script src="oblig1.js"></script>
+
+
+</head>
+<body>
+<h1>Bestilling av kinobilletter</h1>
+<table>
+    <tr><td>Film</td><td><select id="film" onchange="choose();">
+        <option>velg film her</option>
+        <option>Aquaman</option>
+        <option>Tunellen</option>
+        <option>Bølgen</option>
+        <option>Torden</option>
+        <option>Troll</option>
+
+    </select></td></tr>
+
+    <tr><td>Antall</td><td>
+        <select id="antall" onchange="velg_antall();">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+    </select></td></tr>
+    <tr><td>Fornavn</td><td><input type="text" id="navn"/></td></tr>
+    <tr><td>Etternavn</td><td><input type="text" id="etternavn"/></td></tr>
+    <tr><td>EpostAdresse</td><td><input type="text" id="epostadresse"/></td></tr>
+
+</table>
+<button onclick="registrer()">Kjøp billett</button>
+<h3>Alle billetter</h3>
+<table>
+    <tr><td><div id="filmRegister"></div></td></tr>
+</table>
+
+</body>
+</html>

@@ -15,6 +15,7 @@ function visFilmRegister(){
     }
     document.getElementById("filmRegister").innerHTML=ut;
 }
+//registrerer inputene og viser dem
 function registrer() {
     const film = document.getElementById("film").value;
     const antall = document.getElementById("antall").value;
@@ -24,7 +25,7 @@ function registrer() {
     const epostadresse = document.getElementById("epostadresse").value;
 
 
-    //validering for inputene
+    //validering for inputene, sjekker om de er gyldige eller har blitt skrevet inn
     if (film === "") {
         document.getElementById("error_film").append("Må velge en film");
         return;
@@ -53,7 +54,7 @@ function registrer() {
         return;
     }
 
-
+    //en konstant for billettregistrering
     const billett = {
         film: film,
         antall: antall,
@@ -73,7 +74,6 @@ function registrer() {
     visFilmRegister();
 
 }
-
 
     //Funksjon for å slette alt i filmregisteret
     function slettRegister(){

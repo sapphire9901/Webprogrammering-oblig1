@@ -94,6 +94,7 @@ function registrer() {
         epostadresse: epostadresse
     };
     filmRegister.push(billett);
+
     //nullstill inputboksene
     document.getElementById("film").value = "";
     document.getElementById("antall").value = "";

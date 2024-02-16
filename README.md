@@ -11,6 +11,6 @@ Fult navn: Sapphire Gro
 Kort beskrivelse: 
 Laget to tabeller hvorav den ene tar imot imputer mens den andre skriver ut billettene.
 Ga forskjellig id til tabellene for å skille dem.
-brukte if-setninger for å validere inputtene og opprettet en funskjon for å slette alt fra tabellen
+brukte if-setninger og regex for å validere inputtene og opprettet en funskjon for å slette alt fra tabellen
 
 

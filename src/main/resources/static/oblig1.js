@@ -24,35 +24,65 @@ function registrer() {
     const telefon = document.getElementById("telefon").value;
     const epostadresse = document.getElementById("epostadresse").value;
 
+    //initialiserer variabel med value false
+    let hasError = false;
 
-    //validering for inputene, sjekker om de er gyldige eller har blitt skrevet inn
+    // Validation for film
     if (film === "") {
-        document.getElementById("error_film").append("Må velge en film");
-        return;
+        document.getElementById("error_film").textContent = "Må velge en film";
+        hasError = true;
+    } else {
+        document.getElementById("error_film").textContent = "";
     }
+
+    // Validering for antall billett
     if (antall === "" || isNaN(antall) || parseInt(antall) <= 0) {
-        document.getElementById("error_antall").append("Må velge antall");
-        return;
+        document.getElementById("error_antall").textContent = "Må velge antall";
+        hasError = true;
+    } else {
+        document.getElementById("error_antall").textContent = "";
     }
+
+    // Validering for fornavn
     if (navn === "") {
-        document.getElementById("error_fornavn").append("Må skrive noe inn i fornavn");
-        return;
+        document.getElementById("error_fornavn").textContent = "Må skrive noe inn i fornavn";
+        hasError = true;
+    } else {
+        document.getElementById("error_fornavn").textContent = "";
     }
 
+    // Validering for etternavn
     if (etternavn === "") {
-        document.getElementById("error_etternavn").append("Må skrive noe inn i etternavn");
-        return;
-    }
-    if (telefon === "" || isNaN(telefon) || telefon.length !== 8) {
-        document.getElementById("error_telefon").append("Må skrive noe inn i telefon");
-        return;
+        document.getElementById("error_etternavn").textContent = "Må skrive noe inn i etternavn";
+        hasError = true;
+    } else {
+        document.getElementById("error_etternavn").textContent = "";
     }
 
+    // Validering for telefonnummer ved å bruke regex
+    const telefonRegex = /^\d{8}$/;
+    if (telefon === "" || !telefonRegex.test(telefon)) {
+        document.getElementById("error_telefon").textContent = "Må skrive inn et gyldig telefonnummer (8 siffer)";
+        hasError = true;
+    } else {
+        document.getElementById("error_telefon").textContent = "";
+    }
+
+    // Validering for email ved bruk av regex
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(epostadresse)) {
-        document.getElementById("error_epost").append("Må skrive noe inn i epost");
+        document.getElementById("error_epost").textContent = "Må skrive inn en gyldig e-postadresse";
+        hasError = true;
+    } else {
+        document.getElementById("error_epost").textContent = "";
+    }
+
+    // hvis noen av  input er invalid, returner uten registrering
+    if (hasError) {
         return;
     }
+
+    // If all validations pass, register the ticket
 
     //en konstant for billettregistrering
     const billett = {
